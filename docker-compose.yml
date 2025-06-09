@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  f1-microservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - f1-data:/app
+    environment:
+      - PORT=8080
+    restart: unless-stopped
+
+volumes:
+  f1-data:
